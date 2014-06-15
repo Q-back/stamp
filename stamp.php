@@ -1,77 +1,8 @@
 <?
-/*                                                                                          
-   SSSSSSSSSSSSSSS     tttt                                                                     
- SS:::::::::::::::S ttt:::t                                                                     
-S:::::SSSSSS::::::S t:::::t                                                                     
-S:::::S     SSSSSSS t:::::t                                                                     
-S:::::S       ttttttt:::::ttttttt     aaaaaaaaaaaaa     mmmmmmm    mmmmmmm  ppppp   ppppppppp   
-S:::::S       t:::::::::::::::::t     a::::::::::::a  mm:::::::m  m:::::::mmp::::ppp:::::::::p  
- S::::SSSS    t:::::::::::::::::t     aaaaaaaaa:::::am::::::::::mm::::::::::p:::::::::::::::::p 
-  SS::::::SSSStttttt:::::::tttttt              a::::am::::::::::::::::::::::pp::::::ppppp::::::p
-    SSS::::::::SS   t:::::t             aaaaaaa:::::am:::::mmm::::::mmm:::::mp:::::p     p:::::p
-       SSSSSS::::S  t:::::t           aa::::::::::::am::::m   m::::m   m::::mp:::::p     p:::::p
-            S:::::S t:::::t          a::::aaaa::::::am::::m   m::::m   m::::mp:::::p     p:::::p
-            S:::::S t:::::t    ttttta::::a    a:::::am::::m   m::::m   m::::mp:::::p    p::::::p
-SSSSSSS     S:::::S t::::::tttt:::::a::::a    a:::::am::::m   m::::m   m::::mp:::::ppppp:::::::p
-S::::::SSSSSS:::::S tt::::::::::::::a:::::aaaa::::::am::::m   m::::m   m::::mp::::::::::::::::p 
-S:::::::::::::::SS    tt:::::::::::tta::::::::::aa:::m::::m   m::::m   m::::mp::::::::::::::pp  
- SSSSSSSSSSSSSSS        ttttttttttt   aaaaaaaaaa  aaammmmmm   mmmmmm   mmmmmmp::::::pppppppp    
-                                                                             p:::::p            
-                                                                             p:::::p            
-                                                                            p:::::::p           
-                                                                            p:::::::p           
-                                                                            p:::::::p           
-                                                                            ppppppppp           
-
-
-					An easy Newsletter Templating engine by Charlie Wilson
-										
-										Version 1.0
-
-
-TEMPLATE DOCS:
-
-A .st template is essentially a mixed PHP/HTML document.
-
-The following variables exist for you to access the .sc data, for example, <p><? echo $st_date; ?></p> would render the newsletter's date in a paragraph tag.
-
-$st_date - Human-readable date.
-$st_subject - Subject line of the message (not actually featured in email HTML contents, hence optional).
-$st_intro - Introductory paragraph, can be multiline. Line breaks are automatically converted to <br /> tags.
-$st_numberOfItems - Computed number of newsletter items.
-
-The $st_numberOfItems variable is used in conjunction with a FOR loop and the $st_item array to iterate over items.
-For example:
-
-for ($i = 0; $i < $st_numberOfItems; $i++)
-{
-	echo "<div class='block'><h1>" . $st_item[$i]['title'] . "</h1><p>" . $st_item[$i]['content'] . "</p></div>";
-}
-
-By passing the expression variable ($i, in this case) as the first index in the $st_item array, you can use the second index to retrieve the following data:
-
-$st_item[itemnumber]['title'] - Title of the block.
-$st_item[itemnumber]['image_path'] - Filepath of the image.
-$st_item[itemnumber]['image_link'] - Destination URL of the image, when clicked.
-$st_item[itemnumber]['content'] - The HTML-escaped content of the block. Line breaks are automatically converted to <br /> tags.
-$st_item[itemnumber]['link_title'] - The display text of the link.
-$st_item[itemnumber]['link_url'] - The destination URL of the link.
-
-As of Stamp v1.0, Each block supports a title, a clickable image, body content and a clickable link.
-
-Stamp syntax also has support for an optional banner advertisement. You can use the following variables:
-
-$st_hasBanner - Boolean, returns True if a banner tag is present in the .sc file specified, returns false if there isn't one.
-$st_banner['image_path'] - Filepath of the banner image.
-$st_banner['image_link'] - Destination URL of the banner, when clicked.
-
+/*
+	Stamp v1.0
+	An easy, flexible templating language and API for HTML newsletters
 */
-
-//Returns the version number. Something of a "Hello, World" for my projects :)
-function stampVersion()
-{
-	return 1.0;
-}
 
 //Returns the raw HTML content of the rendered newsletter
 //$contentFile - An .sc file containing the newsletter's content
