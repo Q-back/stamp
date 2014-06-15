@@ -8,9 +8,9 @@ Stamp Language
 
 The Stamp language is typically used in *Stamp Content* files with the file extension `.sc`.
 
-The Stamp language's syntax can be split into two different categories, the first of which are **Elements**.
+The Stamp language's syntax can be split into two different categories, the first of which are **Document Elements**.
 
-###Element Reference
+###Document Elements
 
 `==Newsletter Subject==` - The subject line of the newsletter. Opened and closed with two `=` characters.
 
@@ -18,9 +18,38 @@ The Stamp language's syntax can be split into two different categories, the firs
 
 `#Hello, World! Welcome to our monthly newsletter!#` - The introductory paragraph of the newsletter. Opened and closed with the `#` tag. Can be multi-line.
 
+`{bannerimage.png|http://destination.url}` - *(Optional)* The banner advertisement of the newsletter. Opened with the `{` character and closed with the `}` character. The image path and destination URL are separated by the `|` character, on the left and the right, respectively.
 
+The other category of Stamp syntax refers to **Item Elements**.
 
+###Item Elements
 
+An item element refers to any element of the `.sc` file contained within an **Item**. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same `.sc` document.
+
+Have a look at the following Stamp code for an example item:
+
+	<
+	-First Item-
+	?[http://placehold.it/280x125|http://www.google.com]
+	
+	"This is the first item. These paragraphs are rendered exactly like the intro paragraph, with each new line replaced by a HTML line break, and all entities HTML encoded."
+	
+	![Click here|http://www.google.com]
+	>
+	
+An item is opened with the `<` character, and closed with a `>` character. These characters don't necessarily need to be on their own line, but for the sake of readibility, it's recommended.
+
+The following elements exist within an item:
+
+`-First Item-` - The title of the item. Opened and closed with `-` characters.
+
+`?[http://placehold.it/280x125|http://www.google.com]` - The item's image. Image links are opened with `?[`, and closed with `]`. The image's filepath and destination link are seperated on the right and left, respectively, by the `|` character.
+
+`"This is the first item..."` - The item's main content. Can be multiline.
+
+`![Click here|http://www.google.com]` - The item's main link. The text link syntax is identical to that of the image link, only it opens with a `!` character, instead of a `?`.
+
+These four elements can only be used inside an item, but they can sit in any position within the element. Likewise, the subject, date, introductory paragraph and banner ad tags can be used anywhere in the document outside of an item. This allows you more flexibility to write your `.sc` document to better visually match your HTML template.
 
 
 Templates
@@ -45,24 +74,26 @@ The `$st_numberOfItems` variable is used in conjunction with a FOR loop and the 
 
 	for ($i = 0; $i < $st_numberOfItems; $i++)
 	{
-		echo "<div class='block'><h1>" . $st_item[$i]['title'] . "</h1><p>" . $st_item[$i]['content'] . "</p></div>";
+		echo "<div class='item'><h1>" . $st_item[$i]['title'] . "</h1><p>" . $st_item[$i]['content'] . "</p></div>";
 	}
 
-By passing the expression variable (`$i`, in this case) as the first index in the `$st_item` array, you can use the second index to retrieve the following data:
+By passing the expression variable (`$i`, in this case) as the first index in the `$st_item` array, you can use the second index to retrieve the item's data. By passing a fixed integer as the first index, you can access the data of specific blocks, to make the first block in a document a wider size, for example.
 
-`$st_item[itemnumber]['title']` - Title of the block.
+The following variables exist for accessing item elements:
+
+`$st_item[itemnumber]['title']` - Title of the item.
 
 `$st_item[itemnumber]['image_path']` - Filepath of the image.
 
 `$st_item[itemnumber]['image_link']` - Destination URL of the image, when clicked.
 
-`$st_item[itemnumber]['content']` - The HTML-escaped content of the block. Line breaks are automatically converted to `<br />` tags.
+`$st_item[itemnumber]['content']` - The HTML-escaped content of the item. Line breaks are automatically converted to `<br />` tags.
 
 `$st_item[itemnumber]['link_title']` - The display text of the link.
 
 `$st_item[itemnumber]['link_url']` - The destination URL of the link.
 
-As of Stamp v1.0, Each block supports a title, a clickable image, body content and a clickable link.
+As of Stamp v1.0, Each item supports a title, a clickable image, body content and a clickable link.
 
 Stamp syntax also has support for an optional banner advertisement. You can use the following variables:
 
