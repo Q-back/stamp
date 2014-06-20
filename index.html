@@ -29,14 +29,14 @@
       </header>
       <section>
         <h1>
-<a name="welcome-to-stamp" class="anchor" href="#welcome-to-stamp"><span class="octicon octicon-link"></span></a>Welcome to Stamp!</h1>
+<a name="readme" class="anchor" href="#readme"><span class="octicon octicon-link"></span></a>Readme</h1>
 
 <p><strong>Stamp</strong> is both an easy, flexible templating language for newsletter content, and a PHP API for creating HTML templates compatible with the Stamp language.</p>
 
 <h2>
 <a name="stamp-language" class="anchor" href="#stamp-language"><span class="octicon octicon-link"></span></a>Stamp Language</h2>
 
-<p>The Stamp language is typically used in <em>Stamp Content</em> files with the file extension <code>.sc</code>.</p>
+<p>The Stamp language is typically used in <em>Stamp Content</em> files with the file extension <code>.stamp</code>.</p>
 
 <p>The Stamp language's syntax can be split into two different categories, the first of which are <strong>Document Elements</strong>.</p>
 
@@ -56,7 +56,7 @@
 <h3>
 <a name="item-elements" class="anchor" href="#item-elements"><span class="octicon octicon-link"></span></a>Item Elements</h3>
 
-<p>An item element refers to any element of the <code>.sc</code> file contained within an <strong>Item</strong>. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same <code>.sc</code> document.</p>
+<p>An item element refers to any element of the <code>.stamp</code> file contained within an <strong>Item</strong>. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same <code>.stamp</code> document.</p>
 
 <p>Have a look at the following Stamp code for an example item:</p>
 
@@ -82,14 +82,14 @@
 
 <p><code>![Click here|http://www.google.com]</code> - The item's main link. The text link syntax is identical to that of the image link, only it opens with a <code>!</code> character, instead of a <code>?</code>.</p>
 
-<p>These four elements can only be used inside an item, but they can sit in any position within the element. Likewise, the subject, date, introductory paragraph and banner ad tags can be used anywhere in the document outside of an item. This allows you more flexibility to write your <code>.sc</code> document to better visually match your HTML template.</p>
+<p>These four elements can only be used inside an item, but they can sit in any position within the element. Likewise, the subject, date, introductory paragraph and banner ad tags can be used anywhere in the document outside of an item. This allows you more flexibility to write your <code>.stamp</code> document to better visually match your HTML template.</p>
 
 <h2>
 <a name="templates" class="anchor" href="#templates"><span class="octicon octicon-link"></span></a>Templates</h2>
 
-<p>A <code>.st</code> template is essentially a mixed PHP/HTML document.</p>
+<p>A <code>.temp</code> template is essentially a mixed PHP/HTML document.</p>
 
-<p>The following variables exist for you to access the data from the specified <code>.sc</code> file, for example, <code>&lt;p&gt;&lt;? echo $st_date; ?&gt;&lt;/p&gt;</code> would render the newsletter's date in a paragraph tag.</p>
+<p>The following variables exist for you to access the data from the specified <code>.stamp</code> file, for example, <code>&lt;p&gt;&lt;? echo $st_date; ?&gt;&lt;/p&gt;</code> would render the newsletter's date in a paragraph tag.</p>
 
 <h3>
 <a name="template-variables" class="anchor" href="#template-variables"><span class="octicon octicon-link"></span></a>Template Variables</h3>
@@ -130,7 +130,7 @@
 
 <p>Stamp syntax also has support for an optional banner advertisement. You can use the following variables:</p>
 
-<p><code>$st_hasBanner</code> - Boolean, returns True if a banner tag is present in the <code>.sc</code> file specified, returns false if there isn't one.</p>
+<p><code>$st_hasBanner</code> - Boolean, returns True if a banner tag is present in the <code>.stamp</code> file specified, returns false if there isn't one.</p>
 
 <p><code>$st_banner['image_path']</code> - Filepath of the banner image.</p>
 
