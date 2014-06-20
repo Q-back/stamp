@@ -6,7 +6,7 @@ Readme
 Stamp Language
 --------------
 
-The Stamp language is typically used in *Stamp Content* files with the file extension `.sc`.
+The Stamp language is typically used in *Stamp Content* files with the file extension `.stamp`.
 
 The Stamp language's syntax can be split into two different categories, the first of which are **Document Elements**.
 
@@ -24,7 +24,7 @@ The other category of Stamp syntax refers to **Item Elements**.
 
 ###Item Elements
 
-An item element refers to any element of the `.sc` file contained within an **Item**. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same `.sc` document.
+An item element refers to any element of the `.stamp` file contained within an **Item**. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same `.stamp` document.
 
 Have a look at the following Stamp code for an example item:
 
@@ -49,15 +49,15 @@ The following elements exist within an item:
 
 `![Click here|http://www.google.com]` - The item's main link. The text link syntax is identical to that of the image link, only it opens with a `!` character, instead of a `?`.
 
-These four elements can only be used inside an item, but they can sit in any position within the element. Likewise, the subject, date, introductory paragraph and banner ad tags can be used anywhere in the document outside of an item. This allows you more flexibility to write your `.sc` document to better visually match your HTML template.
+These four elements can only be used inside an item, but they can sit in any position within the element. Likewise, the subject, date, introductory paragraph and banner ad tags can be used anywhere in the document outside of an item. This allows you more flexibility to write your `.stamp` document to better visually match your HTML template.
 
 
 Templates
 ---------
 
-A `.st` template is essentially a mixed PHP/HTML document.
+A `.temp` template is essentially a mixed PHP/HTML document.
 
-The following variables exist for you to access the data from the specified `.sc` file, for example, `<p><? echo $st_date; ?></p>` would render the newsletter's date in a paragraph tag.
+The following variables exist for you to access the data from the specified `.stamp` file, for example, `<p><? echo $st_date; ?></p>` would render the newsletter's date in a paragraph tag.
 
 
 ###Template Variables
@@ -97,7 +97,7 @@ As of Stamp v1.0, Each item supports a title, a clickable image, body content an
 
 Stamp syntax also has support for an optional banner advertisement. You can use the following variables:
 
-`$st_hasBanner` - Boolean, returns True if a banner tag is present in the `.sc` file specified, returns false if there isn't one.
+`$st_hasBanner` - Boolean, returns True if a banner tag is present in the `.stamp` file specified, returns false if there isn't one.
 
 `$st_banner['image_path']` - Filepath of the banner image.
 
