@@ -1,6 +1,6 @@
 <?
 /*
-	Stamp v1.0
+	Stamp v1.0.1
 	An easy, flexible templating language and API for HTML newsletters
 */
 
@@ -20,7 +20,7 @@ function stampRender($contentFile, $templateFile)
 	preg_match("/\=\=[\s\S]+\=\=/", $inFile, $subject);
 
 	//#copybody#
-	preg_match("/\#[\s\S]+\#/", $inFile, $intro);
+	preg_match("/\#[\s\S][^\#]+\#/", $inFile, $intro);
 
 	//*(item block)*
 	preg_match_all("/\<[\s\S][^\>]+\>/", $inFile, $block, PREG_SET_ORDER);
