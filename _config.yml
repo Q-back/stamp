@@ -1,0 +1,8 @@
+title: Stamp
+description: An easy, flexible templating language and API for HTML newsletters
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
