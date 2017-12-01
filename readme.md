@@ -10,7 +10,7 @@ The Stamp language is typically used in *Stamp Content* files with the file exte
 
 The Stamp language's syntax can be split into two different categories, the first of which are **Document Elements**.
 
-###Document Elements
+### Document Elements
 
 `==Newsletter Subject==` - The subject line of the newsletter. Opened and closed with two `=` characters.
 
@@ -22,7 +22,7 @@ The Stamp language's syntax can be split into two different categories, the firs
 
 The other category of Stamp syntax refers to **Item Elements**.
 
-###Item Elements
+### Item Elements
 
 An item element refers to any element of the `.stamp` file contained within an **Item**. Items are what makes up the core content of your newsletter, and you can have unlimited items in the same `.stamp` document.
 
@@ -60,7 +60,7 @@ A `.temp` template is essentially a mixed PHP/HTML document.
 The following variables exist for you to access the data from the specified `.stamp` file, for example, `<p><? echo $st_date; ?></p>` would render the newsletter's date in a paragraph tag.
 
 
-###Template Variables
+### Template Variables
 
 `$st_date` - Human-readable date.
 
